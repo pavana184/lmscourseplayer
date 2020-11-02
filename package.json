@@ -1,0 +1,25 @@
+{
+  "name": "player_automation_v01",
+  "version": "1.0.0",
+  "description": "Testing features on Course Player, Automated.",
+  "main": "index.js",
+  "scripts": {
+    "lms": "cucumber-js src/features/lms.feature --publish",
+    "review": "cucumber-js src/features/review.feature --publish",
+    "api": "cucumber-js src/features/apis.feature --publish"
+  },
+  "keywords": [
+    "CE",
+    "Testing",
+    "and",
+    "Automation"
+  ],
+  "author": "Pavanaa",
+  "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "^7.0.0-rc.0",
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
