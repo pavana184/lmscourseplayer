@@ -32,7 +32,8 @@ async function courseCompletionStatus(topics,completedTopics)
 			let completionPercentText = await completionPercent.getText(); 
 			if(completionPercentText=="100%")
 			{
-				console.log("Course Completed");
+				await console.log("Course Completed");
+				await driver.quit();
 			}
 			else
 			{

@@ -192,7 +192,7 @@ async function widgetHandler()
 		{
 			for(i=0;i<widgetIcon.length;i++)
 			{
-				//await driver.sleep(3000)
+				await driver.sleep(1000)
 				let offset = await widgetIcon[i].getRect();
 				let x= await offset.x;
 				let y = await offset.y;
@@ -201,6 +201,7 @@ async function widgetHandler()
 	   		 	await actions.move({x:parseInt(x)-20,y:parseInt(y)}).pause(1000).click().perform();
 				let widgetWindow = await getElement("//div[@class='modal-dialog modal-widget']","xpath",120000);
 	    		let widgetClose = await getElement("tab_close_widget","id",50000);
+	    		console.log(await widgetClose.isEnabled());
 				await widgetClose.click();				
     		}
 		 }
@@ -219,6 +220,7 @@ async function dragToEnd()
 			let x = await offset.x;
 			let y = await offset.y;
 			//await console.log("xoffset = ", x, " yoffset = ", y);
+			await driver.sleep(2000);
 			const actions = driver.actions({async: true});
    			await actions.move({x:parseInt(x)-20,y:parseInt(y)}).pause(1000).click().perform();
     	}catch(err)

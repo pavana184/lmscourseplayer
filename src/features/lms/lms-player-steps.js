@@ -11,8 +11,8 @@ Given('Player home page loaded {string}', { timeout: 30000 }, async (expectedUrl
       const url = await driver.getCurrentUrl();
       const windows = await driver.getAllWindowHandles()
 
-      if(windows.length > 1)	{
-      	await driver.switchTo().window(windows[1]);
+      if(windows.length > 2)	{
+      	await driver.switchTo().window(windows[2]);
       }
       await console.log(windows.length, url, expectedUrl, url.indexOf(expectedUrl))
 
@@ -29,8 +29,8 @@ When('I start or resume the course', async ()=>{
 	await lms.iframeHandler();
 	
 })
-Then('I see selected topic playing', async ()=>{
+Then('I see selected course loaded', async ()=>{
 	await lms.waitForPageLoad()
-	await lms.coursePageHandler()
+	//await lms.coursePageHandler()
 	
 })
