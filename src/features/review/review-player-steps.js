@@ -4,7 +4,7 @@ const lms = require('../../core/lms');
     
           
 
-Given('Opened the url {string}',{ timeout: 10000 }, async (reviewUrl)=>{
+Given('Opened the url {string}',{ timeout: 120000 }, async (reviewUrl)=>{
        return lms.launchLMSPage(reviewUrl);
 })   
 

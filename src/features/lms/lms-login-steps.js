@@ -7,7 +7,7 @@ const lms = require('../../core/lms');
 
 const page = require('./lms-pages');
 
-const TEN_MINUTES = 10000;
+const TEN_MINUTES = 120000;
 const FIVE_MINUTES = TEN_MINUTES / 2;
 const ONE_MINUTE = TEN_MINUTES / 10;
 
@@ -17,6 +17,7 @@ setDefaultTimeout(FIVE_MINUTES);
 Given('I am on login page', { timeout: TEN_MINUTES }, async () => {
 
 	 return lms.launchLMSPage(page.url);
+
 });
 
 When('I login using credentitals {string} and {string}', { timeout: TEN_MINUTES }, async (userid,password) => {
@@ -25,7 +26,7 @@ When('I login using credentitals {string} and {string}', { timeout: TEN_MINUTES 
 });
 
 Then('I see the login success landing page title {string}', async expectedTitle => {
-  lms.waitForPageLoad() 	 
+  await lms.waitForPageLoad() 	 
   // const actualTitle = await driver.getTitle();
   // assert.strictEqual(actualTitle, expectedTitle);
 });
