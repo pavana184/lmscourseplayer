@@ -33,7 +33,7 @@ When('completion percent {string}', {timeout: 15*60000}, async (percent)=>{
 			await driver.sleep(2000);
 			}
 		}
-		await topics.courseCompletionStatus(noOfTopics,topicsCompleted);
+		await topics.courseCompletionStatus(await topic[0].getText(),topic[1]);
 	}
 });
 
