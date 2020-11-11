@@ -11,8 +11,8 @@ Given('Player home page loaded {string}', { timeout: 30000 }, async (expectedUrl
       const url = await driver.getCurrentUrl();
       const windows = await driver.getAllWindowHandles()
 
-      if(windows.length > 2)	{
-      	await driver.switchTo().window(windows[2]);
+      if(windows.length > 1)	{
+      	await driver.switchTo().window(windows[1]);
       }
       await console.log(windows.length, url, expectedUrl, url.indexOf(expectedUrl))
 
