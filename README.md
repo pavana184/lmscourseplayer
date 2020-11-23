@@ -56,6 +56,16 @@ $ npm install -save selenium-webdrive
 Please clear the temp folder often.
 Start > run > %temp%
 
+on Mac, set the path of the chrome player
+```sh
+export PATH=$PATH:/Users/anandv/Projects/testing/chromeplayer
+```
+To fix the chromediver issue
+* [chrome issue fix on mach] - Fix
+
+```sh
+xattr -d com.apple.quarantine /usr/local/bin/chromedriver
+```
 ### Todos
 - Need to check another module for reporting
 - API testing has to be done with Microservice APIs
@@ -70,5 +80,6 @@ MIT
    [selenium]: <https://www.selenium.dev/selenium/docs/api/javascript/index.html>
    [cucumber]: <https://cucumber.io/>
    [node.js]: <http://nodejs.org>
+   [chrome issue fix on mach]: <https://timonweb.com/misc/fixing-error-chromedriver-cannot-be-opened-because-the-developer-cannot-be-verified-unable-to-launch-the-chrome-browser-on-mac-os/>
    
  
