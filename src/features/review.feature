@@ -6,3 +6,7 @@ Feature: CE Review Player
     When I click resume or start the course
     Then I see the review player loading  
 
+  Scenario: Start the course 
+	Given The player
+	When The progress bar is enabled
+	Then Complete the course

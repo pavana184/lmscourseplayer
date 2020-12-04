@@ -11,15 +11,15 @@ Given('Opened the url {string}',{ timeout: 120000 }, async (reviewUrl)=>{
 When('I click resume or start the course', async ()=>{
 
       await lms.waitForPageLoad()
-      // await driver.wait(async () => {
-
-      // },)
+      await driver.sleep(2000);
+      await lms.coursePageHandler();
       
       
 	
 })
 Then('I see the review player loading', async ()=>{
-      await lms.coursePageHandler()
+      await lms.waitForPageLoad();
+      console.log("______");
 })
 
 
