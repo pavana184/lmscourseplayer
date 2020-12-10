@@ -35,10 +35,25 @@ const getDataAuth = (url,options) => {
     }
 }
 
- 
+
+
+async function showAllItems(items) {
+    
+    await items.forEach(async function(el){
+        await console.log(el.$.uniqueid)
+        
+        if(el.content){
+            
+            await showAllItems(el.content)
+        }
+        
+    });
+    
+}
 
 module.exports = {
     getData,
     getDataAuth,
     postData,
+    showAllItems
 }
