@@ -46,8 +46,50 @@ async function courseCompletionStatus(topics,completedTopics)
 	}
 }
 
+async function durationHandler(){
+	try{
+		let duration = await lms.getElement("//span[@class='duration ng-binding']","xpath",20000);
+		let fileDuration = await duration.getText();
+		return fileDuration;
+	}catch(err)
+	{
+		await console.log("duration Handler error", err);
+	}
+}
+
+async function verifyTiming(time)
+{
+	try{
+		await console.log("verify")
+		await driver.sleep(2000);
+		let durationNextButton = await lms.getElement("//div[@id='tab_play_current']//div[@class='item_duration ng-binding']","xpath",20000);
+		let durationNextButtonText = await durationNextButton.getText();
+		//await console.log("duration next button text", durationNextButtonText);
+		//await console.log("verify next")
+		let fileTime = "   00:".concat(time);
+		//await console.log(fileTime);
+		if(fileTime!=durationNextButtonText)
+		{
+			let topicName = await lms.getElement("topic_name","className",20000);
+			//.then(async function(el){
+				let topicNameText = await topicName.getText();
+				//return await el.getText();
+				await console.log(topicNameText, ": ", fileTime, " != ", durationNextButtonText);
+			//})
+		}
+		else{
+			await console.log("file time ", fileTime , "= ", durationNextButtonText);
+		}
+	}catch(err){
+		await console.log("verify file time error", err);
+	}
+}
+//   00:02:58
 const topicDetails={ topicsHandler,
-courseCompletionStatus
+courseCompletionStatus,
+verifyTiming,
+durationHandler,
+
 };
 
 module.exports=topicDetails;
